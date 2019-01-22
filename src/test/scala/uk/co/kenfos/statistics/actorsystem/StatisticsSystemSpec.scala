@@ -30,8 +30,8 @@ class StatisticsSystemSpec extends TestKit(ActorSystem("StatisticsSystem"))
       val oldTransaction = Transaction(amount = 1, timestamp = (DateTime.now - 1.minutes).getMillis)
       val newTransaction = Transaction(amount = 2, timestamp = DateTime.now.getMillis)
 
-      statisticsSystem ! new Add(oldTransaction)
-      statisticsSystem ! new Add(newTransaction)
+      statisticsSystem ! Add(oldTransaction)
+      statisticsSystem ! Add(newTransaction)
       statisticsSystem ! Refresh
 
       val actorState = (statisticsSystem ? GetStatistics).futureValue

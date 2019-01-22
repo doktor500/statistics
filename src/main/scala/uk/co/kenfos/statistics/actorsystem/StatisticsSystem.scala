@@ -1,12 +1,11 @@
 package uk.co.kenfos.statistics.actorsystem
 
 import akka.actor.Actor
-import com.typesafe.scalalogging.LazyLogging
-import uk.co.kenfos.statistics.actorsystem.StatisticsSystem._
 import com.github.nscala_time.time.Imports._
+import uk.co.kenfos.statistics.actorsystem.StatisticsSystem._
 import uk.co.kenfos.statistics.domain.{Summary, Transaction}
 
-class StatisticsSystem extends Actor with LazyLogging {
+class StatisticsSystem extends Actor {
 
   def receive: Receive = active(State.initial)
 
